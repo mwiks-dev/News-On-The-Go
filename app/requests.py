@@ -1,6 +1,6 @@
 import urllib.request,json
-from .models import sources
-from .models import articles
+from .models import NewsSource
+from .models import NewsArticles
 
 # Getting api key
 api_key = None
@@ -42,4 +42,33 @@ def process_results(news_list):
         news_results: A list of movie objects
     '''
     news_results = []
-    
+    for news_item in news_list:
+        status = news_item.get('status')
+        totalResults = news_item.get('totalResults')
+        articles = news_item.get('articles')
+       
+        if status:
+            news_object = NewsSource(status, totalResults, articles)
+            news_results.append(news_object)
+
+    return news_results
+
+
+def get_article(id):
+    get_article_details_url = base_url.format(id,api_key)
+
+    with urllib.request.urlopen(get_article_details_url) as url:
+        article_details_data = url.read()
+        article_details_response = json.loads(article_details_data)
+
+        article_object = None
+        if article_details_response:
+            id = article_details_response.get('id')
+            image = article_details_response.get('image_url')
+            description = article_details_response.get('description')
+            author = article_details_response.get('author')
+            published_at = article_details_response.get('published_at')
+
+            article_object = NewsArticles(id,image,description,author,published_at)
+
+    return article_object
