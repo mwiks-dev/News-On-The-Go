@@ -1,4 +1,4 @@
-#!/home/access/Desktop/Python/News/News-On-The-Go/virtual/bin/python3
+#!/home/access/Desktop/Python/News/News-On-The-Go/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
