@@ -46,12 +46,13 @@ def process_results(sources_list):
     sources_results = []
     for sources_item in sources_list:
         id = sources_item.get('id')
+        name = sources_item.get('name')
         category = sources_item.get('category')
         country = sources_item.get('country')
         language = sources_item.get('language')
        
         if id:
-            sources_object = Source(id,category,country,language)
+            sources_object = Source(id,name,category,country,language)
             sources_results.append(sources_object)
 
     return sources_results
