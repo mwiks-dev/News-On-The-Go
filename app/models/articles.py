@@ -1,4 +1,4 @@
-class NewsArticles:
+class Articles:
     '''
     News Articles class to define news articles objects
     '''

@@ -1,9 +1,10 @@
-class NewsSource:
+class Source:
     '''
     News Source class to define news source objects
     '''
 
-    def __init__(self,status,totalResults,articles):
-        self.status = status
-        self.totalResults = totalResults
-        self.articles = articles
+    def __init__(self,id,category,country,language):
+        self.id = id
+        self.category = category
+        self.country = country
+        self.language = language
