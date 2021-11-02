@@ -1,4 +1,3 @@
-import os
 from app import create_app
 from flask_script import Manager,Server
 
@@ -17,7 +16,6 @@ def test():
     tests = unittest.TestLoader().discover('tests')
     unittest.TextTestRunner(verbosity=2).run(tests)
     
-port = int(os.getenv('PORT'))  
-  
+    
 if __name__ == '__main__':
     manager.run()

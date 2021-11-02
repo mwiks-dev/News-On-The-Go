@@ -4,7 +4,7 @@
 [Maryann Mwikali](https://github.com/Maryan23)
 ## Live Link
 
-https://news-hub-api.herokuapp.com/
+https://news-otg.herokuapp.com/
 
 ## Home Page Look
 
