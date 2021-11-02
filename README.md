@@ -1,20 +1,57 @@
 # NEWS ON THE GO
-#### This Application allows users to stay in touch with current happenings and news all around the world.
-#### 01/11/2021
-#### By MARYANN MWIKALI
+### 02/11/2021
+## Author
+[Maryann Mwikali](https://github.com/Maryan23)
+## Live Link
+
+https://news-hub-api.herokuapp.com/
+
+## Screenshot
+
+<img src="## Screenshot
+
+<img src="app/static/images/Screenshot.png">">
+
 ## Description
-This application allows users to see various news sources on their homepage and thus select a news source of their choice. From the selected source the user is able to view all the news articles available in the application. An image,description and creation time of an article is displayed for the user to catch a glimpse of the article. Lastly the user is able to click on an article and read the full article on the source website.
+1. A user would see various news sources on the homepage of the application.
+2. A user would also be able to select a news source and see all news articles from the selected news source in the application.
+3. A user will be able to see the image, description and the time a news article was created from the News-Articles button.
+4. A click on an article and read the full article on the source website.
 ## Setup/Installation Requirements
-* This is a great place
-* to list setup instructions
-* in a simple
-* easy-to-understand
-* format
-{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? Do I need to install any dependencies? How should I set up my databases? Is there other code this app depends on?}
+To get the code..
+
+1. Cloning the repository:
+  ```bash
+  git clone https://github.com/Maryan23/News-On-The-Go.git
+  ```
+2. Move to the folder and install requirements
+  ```bash
+  cd News-On-The-Go
+  pip install -r requirements.txt
+  ```
+3. Exporting Configurations
+  ```bash
+  export API_KEY='{Enter your News Api Key}'
+  ```
+4. Running the application
+
+  ```bash
+  chmod a+x start.sh
+
+  ./start.sh
+  ```
+5. Testing the application
+  ```bash
+  python3.6 manage.py test
+  ```
+Open the application on your browser `127.0.0.1:5000`.
+
 ## Known Bugs
 No known bugs.
 ## Technologies Used
-{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}
+* [Python3.8](https://www.python.org/)
+* [Flask](http://flask.pocoo.org/)
+* [Heroku](https://heroku.com)
 ## Support and contact details
 Incase of any contributions fork the repo and make any substantial changes.
 Incase of any ideas,suggestions or complaints feel free to connect with me on mwikali119@gmail.com 
