@@ -2,10 +2,10 @@
 
     {% for sources in sources_list %}
     <div class ="col-md-6">
-        <h3>{{sources.name}}</h3>
+        <h3><u>{{sources.name}}</u></h3>
         <p>{{sources.description}}</p>
         <p>{{sources.category}} news category</p>
-        <a href="/articles/{{sources.id}}"><button>{{ sources.id}}</button></a>
+        <a href="/articles/{{sources.id}}"><button class ="btn btn-info">{{ sources.id}}</button></a>
     </div>
     
     {% endfor %}
