@@ -1,8 +1,7 @@
 import urllib.request,json
-from .models import sources
-from .models import articles
-Source = sources.Source
-Articles = articles.Articles
+from models import Source
+from models import Articles
+
 
 # Getting api key
 api_key = None
@@ -28,20 +27,20 @@ def get_sources():
 
         if get_sources_response['sources']:
             sources_results_list = get_sources_response['sources']
-            sources_results = process_results(sources_results_list)
+            sources_results = process_sources(sources_results_list)
 
 
     return sources_results
 
-def process_results(sources_list):
+def process_sources(sources_list):
     '''
-    Function  that processes the news result and transform them to a list of Objects
+    Function  that processes the source result and transform them to a list of Objects
 
     Args:
-        news_list: A list of dictionaries that contain movie details
+        source_list: A list of dictionaries that contain source details
 
     Returns :
-        news_results: A list of movie objects
+        source_results: A list of source objects
     '''
     sources_results = []
     for sources_item in sources_list:
@@ -58,21 +57,46 @@ def process_results(sources_list):
     return sources_results
 
 
-def get_article(id):
-    get_article_details_url = base_url.format(id,api_key)
+def process_articles(articles_list):
+    '''
+    Function that processes the articles result and transform them to a list of objects
 
-    with urllib.request.urlopen(get_article_details_url) as url:
-        article_details_data = url.read()
-        article_details_response = json.loads(article_details_data)
+    Args:
+        articles_list:A list of dictionaries that contains articles details
 
-        article_object = None
-        if article_details_response:
-            id = article_details_response.get('id')
-            image = article_details_response.get('image_url')
-            description = article_details_response.get('description')
-            author = article_details_response.get('author')
-            published_at = article_details_response.get('published_at')
+    Returns:
+         articles_results:A list of articles objects
+    '''
+    articles_results = []
+    for articles_item in articles_list:
+        title = articles_item.get('title')
+        imageUrl = articles_item.get('imageUrl')
+        description = articles_item.get('description')
+        author = articles_item.get('author')
+        publishedAt = articles_item.get('publishedAt')
+        url = articles_item.get('url')
 
-            article_object = Articles(id,image,description,author,published_at)
+        if imageUrl:
+            articles_object = Articles(title,description,imageUrl,author,publishedAt,url)
+            articles_results.append(articles_object)
 
-    return article_object
+    return articles_results
+
+def get_articles(sources_name):
+    '''
+    Function that gets the json results to our url request
+    '''
+    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(sources_name,api_key)
+
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
+
+        articles_results = None
+
+        if get_articles_response['articles']:
+            articles_results_list = get_articles_response['articles']
+            articles_results = process_articles(articles_results_list)
+
+
+    return articles_results

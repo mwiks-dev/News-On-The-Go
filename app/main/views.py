@@ -1,6 +1,6 @@
-from flask import render_template,request,redirect,url_for
+from flask import render_template
 from . import main
-from  ..requests import get_sources, get_article
+from  ..requests import get_sources, get_articles
 
 #Views
 @main.route('/')
@@ -14,12 +14,14 @@ def index():
 
     return render_template('index.html',title = title, sources = sources)
 
-@main.route('/movie/<int:id>')
-def articles(id):
+@main.route('/articles/<sources_name>')
+def articles(sources_name):
     '''
-    View movie page function that returns the movie details page and its data
+    View articles page function that returns the  article details page and its data
     '''
-    article = get_article(id)
+    articles = get_articles(sources_name)
+    print(articles)
+
     
 
-    return render_template('artticles.html',article=article)
+    return render_template('articles.html',articles = articles)

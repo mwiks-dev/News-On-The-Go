@@ -1,6 +1,11 @@
-<div class="top-news m-2">
-    <h3 class="">All articles</h3>
-    <div class="row">
-       {{ displayArticlesList(articles) }}
-    </div>
- </div>
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+
+{%block content%}
+<div class="">
+   <h3 class="">All articles</h3>
+   <div class="row">
+      {{ macro.displayArticlesList(articles) }}
+   </div>
+</div>
+ {%endblock%}
