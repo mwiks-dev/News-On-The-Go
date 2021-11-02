@@ -8,7 +8,7 @@ https://news-hub-api.herokuapp.com/
 
 ## Home Page Look
 
-<img src="/home/access/Desktop/Python/News/News-On-The-Go/app/static/images/Screenshot from 2021-11-02 23-59-19.png">
+<img src="/app/static/images/Screenshot from 2021-11-02 23-59-19.png">
 
 ## Description
 1. A user would see various news sources on the homepage of the application.
