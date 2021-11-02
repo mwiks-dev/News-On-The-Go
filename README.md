@@ -6,10 +6,7 @@
 
 https://news-hub-api.herokuapp.com/
 
-## Screenshot
-
-<img src="## Screenshot
-
+## Home Page Look
 <img src="app/static/images/Screenshot.png">">
 
 ## Description
