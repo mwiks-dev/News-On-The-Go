@@ -1,41 +1,35 @@
 {% macro displaySourcesList(sources_list) %}
 
     {% for sources in sources_list %}
-    
-    <a href="/articles/{{sources_name}}"><button>{{ sources.name}}</button></a>
+    <div class ="col-md-6">
+        <h3>{{sources.name}}</h3>
+        <p>{{sources.description}}</p>
+        <p>{{sources.category}} news category</p>
+        <a href="/articles/{{sources.id}}"><button>{{ sources.id}}</button></a>
+    </div>
     
     {% endfor %}
 
 {% endmacro %}
+
 {% macro displayArticlesList(articles_list) %}  
 
     {% for articles in articles_list %}
 
-<div class="">
-    <div class=" col-md-6">
+    <div class="col-md-6">
         <div class="card">
-    {% if articles.imageUrl %}
-            <img src="{{ articles.imageUrl }}" height="400" width="500">
+            {% if articles.urlToImage %}
+            <img src="{{ articles.urlToImage }}" height="300" width="300" alt="{{ articles.title | truncate(10) }}">
+            {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ articles.title }}</h5>
+            <p class="card-text">Uploaded on:{{ articles.publishedAt }} </p>
+            <p class="card-text"><small class="text-muted">Compiled by:{{ articles.author}}</small></p>
+            <p class="card-text"><small class="text-muted"><a href="{{ articles.url }}"><button>Read More...</button></a></small></p>
 
-    {% endif %}
-    
-            <div class="card-body">
-                <h6 class="">{{ articles.title }}</h6>
-                <p class="card-text"><small> {{ articles.description }}</small></p>
-                <div class="">
-                    <div>
-                        <p><strong><span class=""><small> {{ articles.publishedAt  }} </small></span></strong>
-                        </p>
-                    </div>
-                    <div class="">
-                        <a href="{{ articles.url }}" target="_blank" class=""><button> Read More </button></a> <br><br>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-</div><br>
-
+    </div>                
     {% endfor %}
 
 {% endmacro %}

@@ -1,17 +1,14 @@
-{%extends 'base.html'%}
+{% extends 'base.html'%}
 {% import 'macros.html' as macro%}
-<!--Content block-->
+
 {%block content%}
 <div class="container">
     <h1 align="center"><strong>NEWS ON THE GO</strong></h1>
             
             <div class="row">
-                <div class = "col-md-8">
+                <div class = "col-md-12">
                     <h3 align="center">News Sources</h3>
                     <h4>{{ macro.displaySourcesList(sources)}}</h4>
-                </div>
-                <div class = "col-md-4">
-                    <h3 align="center">Favorite Sources</h3>
                 </div>
             </div>          
 </div>
