@@ -7,7 +7,8 @@
 https://news-hub-api.herokuapp.com/
 
 ## Home Page Look
-<img src="app/static/images/Screenshot.png">">
+
+<img src="app/static/images/Screenshot.png">
 
 ## Description
 1. A user would see various news sources on the homepage of the application.
