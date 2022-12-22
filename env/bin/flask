@@ -1,4 +1,4 @@
-#!/home/access/Desktop/Python/News/News-On-The-Go/env/bin/python3
+#!/home/mwiks-dev/News-On-The-Go/env/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
